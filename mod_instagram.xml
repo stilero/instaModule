@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module"  method="upgrade" version="1.5">
+    <name>Instagram</name>
+    <creationDate>2012-05-07</creationDate>
+    <author>Daniel Eliasson Stilero Webdesign</author>
+    <authorEmail>joomla@stilero.com</authorEmail>
+    <authorUrl>http://www.stilero.com</authorUrl>
+    <copyright>Copyright (C) 2012 Daniel Eliasson Stilero Webdesign Open Source Matters. All rights reserved.</copyright>	
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <version>1.0</version>
+    <description>A module for displaying instagram images</description>
+    <files>
+        <filename module="mod_instagram">mod_instagram.php</filename>
+        <folder>tmpl</folder>
+        <filename>helper.php</filename>
+        <filename>instaClass.php</filename>
+        <filename>index.html</filename>
+        <filename>mod_instagram.xml</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB.mod_instagram.ini</language>
+        <language tag="de-DE">language/de-DE.mod_instagram.ini</language>            
+    </languages>
+    <params>
+        <param name="classname" type="text" default="" label="Class Name" description="Class Name Description" />
+    </params>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="client_id" type="text" default="" label="MOD_INSTAGRAM_CLIENT_ID" description="MOD_INSTAGRAM_CLIENT_DESC" />
+                <field name="client_secret" type="text" default="" label="MOD_INSTAGRAM_CLIENT_SECRET" description="MOD_INSTAGRAM_CLIENT_SECRET_DESC" />
+                <field name="auth_code" type="text" default="" label="MOD_INSTAGRAM_AUTH_CODE" description="MOD_INSTAGRAM_AUTH_CODE_DESC" />
+                <field name="access_token" type="text" default="" label="MOD_INSTAGRAM_ACCESS_TOKEN" description="MOD_INSTAGRAM_ACCESS_TOKEN_DESC" />
+                <field name="redirect_uri" type="text" default="" label="MOD_INSTAGRAM_REDIRECT_URI" description="MOD_INSTAGRAM_REDIRECT_URI_DESC" />
+            </fieldset>
+        </fields>
+    </config>			
+</install>
