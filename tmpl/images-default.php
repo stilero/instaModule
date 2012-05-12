@@ -11,6 +11,8 @@ defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
 $document->addStyleSheet($modulePath.DS.'css'.DS.'style.css');
 $userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
+JHtmlBehavior::framework();
+JHtmlBehavior::framework(true);
 JHTML::_('behavior.modal', 'a.instaimage');
 ?>
 <h2><?php echo $module->title; ?></h2>

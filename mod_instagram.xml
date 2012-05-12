@@ -29,7 +29,12 @@
     <config>
         <fields name="params" >
             <fieldset name="basic">
-                <field name="display_type" type="list" default="1" label="MOD_INSTAGRAM_TYPE" description="MOD_INSTAGRAM_TYPE_DESC">
+                <field name="display_type" 
+                    type="list" 
+                    default="user-recent" 
+                    label="MOD_INSTAGRAM_TYPE" 
+                    description="MOD_INSTAGRAM_TYPE_DESC"
+                >
                     <option value="user-recent">MOD_INSTAGRAM_TYPE_USER_RECENT</option>
                     <option value="user-feed">MOD_INSTAGRAM_TYPE_USER_FEED</option>
                     <option value="user-liked">MOD_INSTAGRAM_TYPE_USER_LIKED</option>
@@ -41,6 +46,17 @@
                     label="MOD_INSTAGRAM_IMAGE_COUNT" 
                     description="MOD_INSTAGRAM_IMAGE_COUNT_DESC" 
                 />
+                <field name="gallery_type" 
+                    type="list" default="default" 
+                    label="MOD_INSTAGRAM_GALLERY_TYPE" 
+                    description="MOD_INSTAGRAM_GALLERY_TYPE_DESC"
+                >
+                    <option value="default">MOD_INSTAGRAM_GALLERY_TYPE_DEFAULT</option>
+                    <option value="scroll">MOD_INSTAGRAM_GALLERY_TYPE_SCROLL</option>
+                    <option value="uvumi">MOD_INSTAGRAM_GALLERY_TYPE_UVUMI</option>
+                    <option value="lightbox">MOD_INSTAGRAM_GALLERY_TYPE_LIGHTBOX</option>
+                    <option value="slides">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
+                </field>
                  <field name="pre_text"
                     type="textarea" 
                     label="MOD_INSTAGRAM_PRE_TEXT"

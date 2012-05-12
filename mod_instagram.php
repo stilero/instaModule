@@ -17,8 +17,7 @@ $Instagram = modInstagramHelper::getInstagramObject($params);
 //$images = $instagram->recentUserImages();
 //$list = modArticlesNewsHelper::getList($params);
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
-$requestType= $params->get('display_type', 'images');
-$requestType = $requestType=='user-info' ? 'users' : 'images';
-require JModuleHelper::getLayoutPath('mod_instagram',$requestType);
+$galleryType= $params->get('gallery_type', 'default');
+require JModuleHelper::getLayoutPath('mod_instagram','images-'.$galleryType);
 //require_once ('helper.php');
 ?>

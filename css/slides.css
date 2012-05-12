@@ -1,0 +1,17 @@
+/* 
+    Document   : slides
+    Created on : 2012-maj-12, 22:29:21
+    Author     : Daniel Eliasson - joomla at stilero.com
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.slides_container {
+                width:570px;
+                height:270px;
+            }
+            .slides_container div {
+                width:570px;
+                height:270px;
+                display:block;
+            }
