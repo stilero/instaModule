@@ -29,10 +29,10 @@
         <fields name="params" >
             <fieldset name="basic" addfieldpath="/modules/mod_instagram/elements">
                 <field name="instructions_code" type="instructions" label="instructions"/>
-                <field name="authorize" type="authorize" default="" label="" description="" />
-                <field name="client_id" type="text" default="" label="MOD_INSTAGRAM_CLIENT_ID" description="MOD_INSTAGRAM_CLIENT_DESC" />
+                <field name="client_id" type="text" default="" label="MOD_INSTAGRAM_CLIENT_ID" description="MOD_INSTAGRAM_CLIENT_ID_DESC" />
                 <field name="client_secret" type="text" default="" label="MOD_INSTAGRAM_CLIENT_SECRET" description="MOD_INSTAGRAM_CLIENT_SECRET_DESC" />
                 <field name="redirect_uri" type="redirecturi" default="" />
+                <field name="authorize" type="authorize" default="" label="" description="" />
                 <field name="auth_code" type="hidden" default="" />
                 <field name="access_token" type="hidden" default="" />
                 <field name="base_uri" type="baseuri" default="" />

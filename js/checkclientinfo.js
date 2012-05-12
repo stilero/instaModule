@@ -4,12 +4,14 @@ window.addEvent('domready', function(){
     var clientSecret = $('jform_params_client_secret').value;
     var redirectURI = $('jform_params_redirect_uri').value;
     var authCode = $('jform_params_auth_code').value;
+    var catcherURI = $('jform_params_helpers_uri').value + 'catcher.php';
+
     var sendVars;
         
     var setLinkHref = function(){
         var link = 'https://api.instagram.com/oauth/authorize/' + 
             '?client_id=' + clientID +
-            '&redirect_uri=' + redirectURI +
+            '&redirect_uri=' + catcherURI +
             '&response_type=code';
         $( 'jform_params_authorize').href = link;
     };
@@ -34,7 +36,7 @@ window.addEvent('domready', function(){
         }else{
             $('jform_params_access_token').value = response.access_token;
             $('jform_params_auth_code').value = '';        
-            alert('App Connected to Instagram.\nSave to Complete Settings.');
+            alert(MOD_INSTAGRAM_JS_SUCCESS);
         }
     };
     
@@ -53,15 +55,13 @@ window.addEvent('domready', function(){
                 'client_secret': clientSecret,
                 'grant_type': 'authorization_code',
                 'code': authCode,
-                'redirect_uri': redirectURI
+                'redirect_uri': catcherURI
             },
             onSuccess: function(responseText){
                 handleResponse(responseText);
             },
             onFailure: function(responseText){
-                //myElement.set('text', 'Sorry, your request failed :(');
-                //alert(reqUrl + '?' + sendVars);
-                alert('Failed' + responseText.status);
+                alert(MOD_INSTAGRAM_JS_FAILURE + responseText.status);
             }
         });
         

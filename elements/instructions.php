@@ -64,15 +64,19 @@ if(version_compare(JVERSION, '1.6.0', '<')){
             //JHTML::_('behavior.modal', 'a.modal');
             $linktext = JText::_(MOD_INSTAGRAM_INSTRUCTIONS);
             $instagramURI = 'http://instagram.com/developer/clients/register/';
-            $handler = "{handler: 'iframe', size:{ x:800, y:650}}";
-            $htmlCode = '<a id="'.$this->id.'" class="modal" target="_blank" rel="'.$handler.'" href="'.$instagramURI.'" title="'.$linktext.'">'.$linktext.'</a>';
+            //$handler = ' rel="'. "{handler: 'iframe', size:{ x:800, y:650}}".'"';
+            //$class = ' class="modal"';
+            $htmlCode = '<a id="'.$this->id.'"'.$class.' target="_blank"'.$handler.' href="'.$instagramURI.'" title="'.$linktext.'">'.$linktext.'</a>';
             return $htmlCode;
         }
         
         protected function getLabel(){
             $toolTip = JText::_(MOD_INSTAGRAM_INSTRUCTIONS_DESC);
             $text = JText::_(MOD_INSTAGRAM_INSTRUCTIONS_LABEL);
-            $labelHTML = '<label id="'.$this->id.'-lbl" for="'.$this->id.'" class="hasTip" title="'.$text.'::'.$toolTip.'">'.$text.'</label>';
+            $labelHTML = '<span class="readonly">'.
+                    //'<label id="'.$this->id.'-lbl" for="'.$this->id.'" class="hasTip" title="'.$text.'::'.$toolTip.'">'.$text.'</label>';
+                    '<label class="hasTip" title="'.$text.'::'.$toolTip.'">'.$text.'</label>';
+                '</span>';
             return $labelHTML;
         }
     }//End Class

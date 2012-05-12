@@ -71,6 +71,7 @@ if(version_compare(JVERSION, '1.6.0', '<')){
                 'jsAsset'       =>      'js/checkclientinfo.js',
                 'images'   =>      $base_path.'images'.DS
             );
+            $this->addTranslationJS();
             $document->addScript($base_path.$this->config['jsAsset']);
             return $this->connectButton($this->id);
         }
@@ -79,7 +80,7 @@ if(version_compare(JVERSION, '1.6.0', '<')){
             $toolTip = JText::_(MOD_INSTAGRAM_INSTRUCTIONS_DESC);
             $text = JText::_(MOD_INSTAGRAM_INSTRUCTIONS_LABEL);
             $labelHTML = '<label id="'.$this->id.'-lbl" for="'.$this->id.'" class="hasTip" title="'.$text.'::'.$toolTip.'">'.$text.'</label>';
-            return $labelHTML;
+            return ;
         }
         
         private function getParams(){
@@ -97,38 +98,22 @@ if(version_compare(JVERSION, '1.6.0', '<')){
             return $htmlCode;
         }
         
+        private function addTranslationJS(){
+            $document =& JFactory::getDocument();
+            $jsTranslationStrings = 'var MOD_INSTAGRAM_JS_SUCCESS = "'.JText::_(MOD_INSTAGRAM_JS_SUCCESS).'";';
+            $jsTranslationStrings .= 'var MOD_INSTAGRAM_JS_FAILURE = "'.JText::_(MOD_INSTAGRAM_JS_FAILURE).'";';
+            $document->addScriptDeclaration($jsTranslationStrings);        
+        }
+        
         private function connectButton($id){
-            /*$handler = $rel_handler="{"
-                ."handler: 'ajax',"
-                ." size: {x: 800, y: 450},"
-                ." onClose: function() {},"
-                ." onAjax: function() {"
-                ." SqueezeBox.assign($$('a.lightbox'),"
-                ." {parse: 'rel'});"
-                ." },"
-                ." ajaxOptions: {method: 'post'}"
-                ."}";
-            $handler = "{handler: 'iframe', size:{ x:800, y:500}}";
-             * 
-             */
             $buttonImage = $this->config['images'].'connect-button.png';
             $htmlCode = 
                     '<a '.
                     'id="'.$id.'" '.
-                    //'class="lightbox" '.
                     'title="'.JText::_('MOD_INSTAGRAM_AUTHORIZE').'" '.
                     'href="'.$link.'" '.
-                    'target="_blank" '.
-                    //'rel="{handler: \'iframe\', size:{ x:800, y:500}}">'.
-                    //'rel="'.$handler.'"'.
-                    '>'.
-                    //'>';
-                    //'rel="{handler: \'ajax\'}">'.
-                    //'<button onclick="return false">'.
-                    //'>'.
-                    //JText::_('MOD_INSTAGRAM_AUTHORIZE').
+                    'target="_blank" >'.
                     '<img src="'.$buttonImage.'" />'.
-                    //'</ button>'.
                     '</a>';
             return $htmlCode;
         }
