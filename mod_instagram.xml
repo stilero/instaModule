@@ -14,6 +14,7 @@
         <folder>tmpl</folder>
         <folder>elements</folder>
         <folder>images</folder>
+        <folder>css</folder>
         <folder>helpers</folder>
         <folder>js</folder>
         <filename>helper.php</filename>
@@ -27,7 +28,39 @@
     </languages>
     <config>
         <fields name="params" >
-            <fieldset name="basic" addfieldpath="/modules/mod_instagram/elements">
+            <fieldset name="basic">
+                <field name="display_type" type="list" default="1" label="MOD_INSTAGRAM_TYPE" description="MOD_INSTAGRAM_TYPE_DESC">
+                    <option value="user-recent">MOD_INSTAGRAM_TYPE_USER_RECENT</option>
+                    <option value="user-feed">MOD_INSTAGRAM_TYPE_USER_FEED</option>
+                    <option value="user-liked">MOD_INSTAGRAM_TYPE_USER_LIKED</option>
+                    <option value="most-popular">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
+                </field>
+                <field name="image_count" 
+                    type="text" 
+                    default="30" 
+                    label="MOD_INSTAGRAM_IMAGE_COUNT" 
+                    description="MOD_INSTAGRAM_IMAGE_COUNT_DESC" 
+                />
+                 <field name="pre_text"
+                    type="textarea" 
+                    label="MOD_INSTAGRAM_PRE_TEXT"
+                    description="MOD_INSTAGRAM_PRE_TEXT_DESC"
+                    default="" 
+                    rows="6" 
+                    cols="30" 
+                    filter="raw" 
+                />
+                <field name="post_text"
+                    type="textarea" 
+                    label="MOD_INSTAGRAM_POST_TEXT"
+                    description="MOD_INSTAGRAM_POST_TEXT_DESC"
+                    default="" 
+                    rows="6" 
+                    cols="30" 
+                    filter="raw" 
+                />
+            </fieldset>
+            <fieldset name="instagram_settings" label="MOD_INSTAGRAM_SETTINGS" addfieldpath="/modules/mod_instagram/elements">
                 <field name="instructions_code" type="instructions" label="instructions"/>
                 <field name="client_id" type="text" default="" label="MOD_INSTAGRAM_CLIENT_ID" description="MOD_INSTAGRAM_CLIENT_ID_DESC" />
                 <field name="client_secret" type="text" default="" label="MOD_INSTAGRAM_CLIENT_SECRET" description="MOD_INSTAGRAM_CLIENT_SECRET_DESC" />
@@ -37,6 +70,46 @@
                 <field name="access_token" type="hidden" default="" />
                 <field name="base_uri" type="baseuri" default="" />
                 <field name="helpers_uri" type="helpersuri" />
+            </fieldset>
+            <fieldset name="advanced">
+                <field
+                    name="layout"
+                    type="modulelayout"
+                    label="JFIELD_ALT_LAYOUT_LABEL"
+                    description="JFIELD_ALT_MODULE_LAYOUT_DESC" 
+                />
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" 
+                />
+                <field
+                    name="cache"
+                    type="list"
+                    default="1"
+                    label="COM_MODULES_FIELD_CACHING_LABEL"
+                    description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option
+                        value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option
+                        value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+                <field
+                    name="cache_time"
+                    type="text"
+                    default="900"
+                    label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                    description="COM_MODULES_FIELD_CACHE_TIME_DESC" 
+                />
+                <field
+                    name="cachemode"
+                    type="hidden"
+                    default="itemid">
+                    <option
+                        value="itemid">
+                    </option>
+                </field>
             </fieldset>
         </fields>
     </config>			

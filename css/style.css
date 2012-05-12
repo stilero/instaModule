@@ -1,0 +1,27 @@
+/* 
+    Document   : style
+    Created on : 2012-maj-12, 16:49:14
+    Author     : Daniel Eliasson - joomla at stilero.com
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.instagallery a.instaimage{
+    float:left;
+    margin:1em;
+}
+.instagallery .post-text{
+    clear:left;
+}
+.instacounts span{
+    float: left;
+    background-color: #0099cc;
+    width:60px;
+    height:40px;
+    margin:2px;
+    padding:3px;
+    font-size: 2em;
+    text-align: center;
+    color:#fff;
+    border: 1px solid 
+}

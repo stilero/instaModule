@@ -30,27 +30,30 @@ class modInstagramHelper{
         $css_class = $params->get('classname');
         return "";
     }
-
-    static public function connectToInstagram($params){
+    
+    static public function isSettingsEntered($params){
+        $id = $params->get('client_id');
+        $secr = $params->get('client_secret');
+        $tok = $params->get('access_token');
+        $uri = $params->get('redirect_uri');
+        if($id=='' || $secr=='' || $tok=='' ||$uri==''){
+            return false;
+        }
+        return true;
+    }
+    
+    static public function getInstagramObject($params){
+        if(!self::isSettingsEntered($params)){
+            JError::RaiseNotice('0', JText::_('MOD_INSTAGRAM_ERROR_MISS_SETTINGS'));
+        }
         $clientID = $params->get('client_id');
         $clientSecret = $params->get('client_secret');
-        $authCode = $params->get('auth_code');
         $accessToken = $params->get('access_token');
         $redirec_uri = $params->get('redirect_uri');
         $config = array(
             'redirectURI'   =>  $redirec_uri
         );
-        $instagram = new jInstaClass($clientID, $clientSecret,'','',$config);
-        if($accessToken == ''){
-            if($authCode == ''){
-                $instagram->authenticate();
-            }else{
-                $response = $instagram->requestAccessToken($authCode);
-                $ResponseJSON = json_decode($response);
-                print $accessToken = $ResponseJSON->access_token;exit;
-            }
-        }
-        $instagram = new jInstaClass($clientID, $clientSecret,$authCode,$accessToken,$config);
+        $instagram = new jInstaClass($clientID, $clientSecret,'',$accessToken ,$config);
         return $instagram;
     }
     
