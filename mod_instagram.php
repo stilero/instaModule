@@ -13,7 +13,7 @@ require_once (dirname(__FILE__).DS.'helper.php');
 $item = modInstagramHelper::getItem($params);
 $instagram = modInstagramHelper::connectToInstagram($params);
 $images = $instagram->recentUserImages();
-require(JModuleHelper::getLayoutPath('mod_instagram'));
+require(JModuleHelper::getLayoutPath('default'));
 //require_once ('helper.php');
 
 ?>

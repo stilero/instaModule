@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<install type="module"  method="upgrade" version="1.5">
+<install type="module"  method="upgrade" version="1.6">
     <name>Instagram</name>
     <creationDate>2012-05-07</creationDate>
     <author>Daniel Eliasson Stilero Webdesign</author>
@@ -12,6 +12,10 @@
     <files>
         <filename module="mod_instagram">mod_instagram.php</filename>
         <folder>tmpl</folder>
+        <folder>elements</folder>
+        <folder>images</folder>
+        <folder>helpers</folder>
+        <folder>js</folder>
         <filename>helper.php</filename>
         <filename>instaClass.php</filename>
         <filename>index.html</filename>
@@ -21,17 +25,18 @@
         <language tag="en-GB">language/en-GB.mod_instagram.ini</language>
         <language tag="de-DE">language/de-DE.mod_instagram.ini</language>            
     </languages>
-    <params>
-        <param name="classname" type="text" default="" label="Class Name" description="Class Name Description" />
-    </params>
     <config>
-        <fields name="params">
-            <fieldset name="basic">
+        <fields name="params" >
+            <fieldset name="basic" addfieldpath="/modules/mod_instagram/elements">
+                <field name="instructions_code" type="instructions" label="instructions"/>
+                <field name="authorize" type="authorize" default="" label="" description="" />
                 <field name="client_id" type="text" default="" label="MOD_INSTAGRAM_CLIENT_ID" description="MOD_INSTAGRAM_CLIENT_DESC" />
                 <field name="client_secret" type="text" default="" label="MOD_INSTAGRAM_CLIENT_SECRET" description="MOD_INSTAGRAM_CLIENT_SECRET_DESC" />
-                <field name="auth_code" type="text" default="" label="MOD_INSTAGRAM_AUTH_CODE" description="MOD_INSTAGRAM_AUTH_CODE_DESC" />
-                <field name="access_token" type="text" default="" label="MOD_INSTAGRAM_ACCESS_TOKEN" description="MOD_INSTAGRAM_ACCESS_TOKEN_DESC" />
-                <field name="redirect_uri" type="text" default="" label="MOD_INSTAGRAM_REDIRECT_URI" description="MOD_INSTAGRAM_REDIRECT_URI_DESC" />
+                <field name="redirect_uri" type="redirecturi" default="" />
+                <field name="auth_code" type="hidden" default="" />
+                <field name="access_token" type="hidden" default="" />
+                <field name="base_uri" type="baseuri" default="" />
+                <field name="helpers_uri" type="helpersuri" />
             </fieldset>
         </fields>
     </config>			

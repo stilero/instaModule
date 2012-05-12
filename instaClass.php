@@ -82,7 +82,7 @@ class instaClass {
         return;
     }
     
-    private function authURL(){
+    public function authURL(){
         $authURL = $this->config['authURL'].
                 '?client_id=' . $this->clientId.
                 '&redirect_uri='.$this->config['redirectURI'].
@@ -221,6 +221,7 @@ class instaClass {
     }
     
     private function HTTPHeader(){
+        $header = array();
         $header[0] = "Accept: text/xml,application/xml,application/xhtml+xml,"; 
         $header[0] .= "text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"; 
         $header[] = "Cache-Control: max-age=0"; 

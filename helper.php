@@ -53,4 +53,27 @@ class modInstagramHelper{
         $instagram = new jInstaClass($clientID, $clientSecret,$authCode,$accessToken,$config);
         return $instagram;
     }
+    
+    static public function getAuthorizeURL(){
+        $params = &JComponentHelper::getParams( 'mod_instagram' );
+        var_dump($params);exit;
+        $myvariable=$params->get('client_id');
+        var_dump($myvariable);exit;
+        $app = JFactory::getApplication();
+        $mycom_params =  & $app->getParams('mod_instagram');
+        var_dump($mycom_params);exit;
+        $module =& JModuleHelper::getModule('instagram');
+        $params = new JForm($module->params);
+        $params->loadString($module->params); 
+        print $clientID = $params->get('client_id');exit;
+        $clientSecret = $params->get('client_secret');
+        $authCode = $params->get('auth_code');
+        $accessToken = $params->get('access_token');
+        $redirec_uri = $params->get('redirect_uri');
+        $config = array(
+            'redirectURI'   =>  $redirec_uri
+        );
+        $instagram = new jInstaClass($clientID, $clientSecret,'','',$config);
+        return $instagram->authURL();
+    }
 }
