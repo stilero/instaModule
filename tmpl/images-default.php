@@ -15,7 +15,6 @@ JHtmlBehavior::framework();
 JHtmlBehavior::framework(true);
 JHTML::_('behavior.modal', 'a.instaimage');
 ?>
-<h2><?php echo $module->title; ?></h2>
 <div class="instagallery<?php echo $moduleclass_sfx; ?>">
     <p class="pre-text"><?php echo $params->get('pre_text', ''); ?></p>
     <div class="instaimages">

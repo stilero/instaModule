@@ -11,15 +11,16 @@ defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
 $document->addStyleSheet($modulePath.'css'.DS.'slides.css');
 $userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
-//$document->addScriptDeclaration('jQuery.noConflict()');
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js');
+$document->addScriptDeclaration('jQuery.noConflict()');
 $document->addScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js');
 $document->addScript($modulePath.'js'.DS.'slides.min.jquery.js');
 
 $document->addScriptDeclaration('
     //$.noConflict();
-  jQuery(document).ready(function($) {
-    $("#slides").slides();
+    //jQuery.noConflict();
+    jQuery( function($) {
+        $("#slides").slides();
     });');
 ?>
 <h2><?php echo $module->title; ?></h2>

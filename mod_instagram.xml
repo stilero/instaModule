@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <install type="module"  method="upgrade" version="1.6">
-    <name>Instagram</name>
+    <name>InstaModule</name>
     <creationDate>2012-05-07</creationDate>
     <author>Daniel Eliasson Stilero Webdesign</author>
     <authorEmail>joomla@stilero.com</authorEmail>
@@ -46,7 +46,14 @@
                     label="MOD_INSTAGRAM_IMAGE_COUNT" 
                     description="MOD_INSTAGRAM_IMAGE_COUNT_DESC" 
                 />
-                <field name="gallery_type" 
+                <field name="image_thumb_size" 
+                    type="text" 
+                    default="150" 
+                    label="MOD_INSTAGRAM_IMAGE_THUMB_SIZE" 
+                    description="MOD_INSTAGRAM_IMAGE_THUMB_SIZE_DESC" 
+                />
+                <!-- Hidden for future use -->	
+                <!-- <field name="gallery_type" 
                     type="list" default="default" 
                     label="MOD_INSTAGRAM_GALLERY_TYPE" 
                     description="MOD_INSTAGRAM_GALLERY_TYPE_DESC"
@@ -57,6 +64,7 @@
                     <option value="lightbox">MOD_INSTAGRAM_GALLERY_TYPE_LIGHTBOX</option>
                     <option value="slides">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
                 </field>
+                -->
                  <field name="pre_text"
                     type="textarea" 
                     label="MOD_INSTAGRAM_PRE_TEXT"
@@ -77,15 +85,54 @@
                 />
             </fieldset>
             <fieldset name="instagram_settings" label="MOD_INSTAGRAM_SETTINGS" addfieldpath="/modules/mod_instagram/elements">
-                <field name="instructions_code" type="instructions" label="instructions"/>
-                <field name="client_id" type="text" default="" label="MOD_INSTAGRAM_CLIENT_ID" description="MOD_INSTAGRAM_CLIENT_ID_DESC" />
-                <field name="client_secret" type="text" default="" label="MOD_INSTAGRAM_CLIENT_SECRET" description="MOD_INSTAGRAM_CLIENT_SECRET_DESC" />
-                <field name="redirect_uri" type="redirecturi" default="" />
-                <field name="authorize" type="authorize" default="" label="" description="" />
-                <field name="auth_code" type="hidden" default="" />
-                <field name="access_token" type="hidden" default="" />
-                <field name="base_uri" type="baseuri" default="" />
-                <field name="helpers_uri" type="helpersuri" />
+                <field 
+                    name="instructions_code" 
+                    type="instructions" 
+                    label="instructions"
+                />
+                <field 
+                    name="client_id" 
+                    type="text" default="" 
+                    label="MOD_INSTAGRAM_CLIENT_ID" 
+                    description="MOD_INSTAGRAM_CLIENT_ID_DESC" 
+                />
+                <field 
+                    name="client_secret" 
+                    type="text" default="" 
+                    label="MOD_INSTAGRAM_CLIENT_SECRET" 
+                    description="MOD_INSTAGRAM_CLIENT_SECRET_DESC" 
+                />
+                <field 
+                    name="redirect_uri" 
+                    type="redirecturi" 
+                    default="" 
+                />
+                <field 
+                    name="authorize" 
+                    type="authorize" 
+                    default="" 
+                    label="" 
+                    description="" 
+                />
+                <field 
+                    name="auth_code" 
+                    type="hidden" 
+                    default="" 
+                />
+                <field 
+                    name="access_token" 
+                    type="hidden" 
+                    default="" 
+                />
+                <field 
+                    name="base_uri" 
+                    type="baseuri" 
+                    default="" 
+                />
+                <field 
+                    name="helpers_uri" 
+                    type="helpersuri" 
+                />
             </fieldset>
             <fieldset name="advanced">
                 <field
