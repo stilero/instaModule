@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="component" method="upgrade">
+	<name>Insta Gallery</name>
+	<author>Daniel Eliasson - joomla at stilero.com</author>
+	<creationDate>2012-maj-17</creationDate>
+	<copyright>Copyright (c) 2012-maj-17 Stilero Webdesign http://www.stilero.com. All rights reserved.</copyright>
+	<authorEmail>joomla@stilero.com</authorEmail>
+	<authorUrl>www.stilero.com</authorUrl>
+	<version>1.0</version>
+	<license>GPLv2</license>
+	<description>Description</description>
+        <!-- Site Main File Copy Section -->
+	<!-- Note the folder attribute: This attribute describes the folder
+		to copy FROM in the package to install therefore files copied
+		in this section are copied from /site/ in the package -->
+	<!-- Standard plugin parameters for Joomla! 1.5 -->	
+	<administration>
+            <!-- Administration Main File Copy Section -->
+            <!-- Note the folder attribute: This attribute describes the folder
+                    to copy FROM in the package to install therefore files copied
+                    in this section are copied from /admin/ in the package -->
+            <files folder="admin">
+                    <!-- Admin Main File Copy Section -->
+                    <filename>index.html</filename>
+                    <filename>instagallery.php</filename>
+                    <filename>controller.php</filename>
+                    <folder>views</folder>
+                    <folder>models</folder>
+            </files>
+            <languages folder="language">
+	       <language tag="en-GB">en-GB.com_instagallery.ini</language>
+	       <language tag="sv-SE">sv-SE.com_instagallery.ini</language>
+	    </languages>
+	</administration>
+</install>
