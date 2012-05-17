@@ -15,6 +15,7 @@
         <folder>elements</folder>
         <folder>images</folder>
         <folder>css</folder>
+        <folder>assets</folder>
         <folder>helpers</folder>
         <folder>js</folder>
         <filename>helper.php</filename>
@@ -52,8 +53,9 @@
                     label="MOD_INSTAGRAM_IMAGE_THUMB_SIZE" 
                     description="MOD_INSTAGRAM_IMAGE_THUMB_SIZE_DESC" 
                 />
-                <!-- Hidden for future use -->	
-                <!-- <field name="gallery_type" 
+                <!-- Hidden for future use -->
+                <!--
+                <field name="gallery_type" 
                     type="list" default="default" 
                     label="MOD_INSTAGRAM_GALLERY_TYPE" 
                     description="MOD_INSTAGRAM_GALLERY_TYPE_DESC"
@@ -63,6 +65,8 @@
                     <option value="uvumi">MOD_INSTAGRAM_GALLERY_TYPE_UVUMI</option>
                     <option value="lightbox">MOD_INSTAGRAM_GALLERY_TYPE_LIGHTBOX</option>
                     <option value="slides">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
+                    <option value="shinetime">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
+                    <option value="gallerific">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
                 </field>
                 -->
                  <field name="pre_text"

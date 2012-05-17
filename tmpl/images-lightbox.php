@@ -17,8 +17,8 @@ $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.m
 $document->addScriptDeclaration('jQuery.noConflict();');
 $document->addScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js');
 $document->addScript($modulePath.'js'.DS.'ppgallery.js');
-//$js = "jQuery( function($) { $('#gallery').ppGallery(); });";
-$js = "jQuery( function($) { $('#gallery').replaceWith('<h2>New heading</h2>'); });";
+$js = "jQuery( function($) { $('#gallery').ppGallery(); });";
+//$js = "jQuery( function($) { $('#gallery').replaceWith('<h2>New heading</h2>'); });";
 $document->addScriptDeclaration($js);
 ?>
 <h2><?php echo $module->title; ?></h2>
