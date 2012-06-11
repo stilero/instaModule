@@ -7,7 +7,7 @@
     <authorUrl>http://www.stilero.com</authorUrl>
     <copyright>Copyright (C) 2012 Daniel Eliasson Stilero Webdesign Open Source Matters. All rights reserved.</copyright>	
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-    <version>1.0</version>
+    <version>1.01</version>
     <description>InstaGallery shows your Instagram images in a module</description>
     <files>
         <filename module="mod_instagram">mod_instagram.php</filename>
@@ -25,7 +25,7 @@
     </files>
     <languages>
         <language tag="en-GB">language/en-GB.mod_instagram.ini</language>
-        <language tag="de-DE">language/de-DE.mod_instagram.ini</language>            
+        <language tag="en-GB">language/en-GB.mod_instagram.sys.ini</language>
     </languages>
     <config>
         <fields name="params" >

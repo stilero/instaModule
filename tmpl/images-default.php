@@ -18,13 +18,16 @@ JHTML::_('behavior.modal', 'a.instaimage');
 <div class="instagallery<?php echo $moduleclass_sfx; ?>">
     <p class="pre-text"><?php echo $params->get('pre_text', ''); ?></p>
     <div class="instaimages">
-        <? $i = 1; ?>
-        <?php foreach ($userInfo as $image) { ?>
-            <? if ($i++ > $params->get('image_count', '30')){
+        <? 
+        $i = 1; 
+        $imagesToShow = $params->get('image_count', '30');
+        foreach ($userInfo as $image) {
+            if ($i++ > $imagesToShow){
                 break;
-            } ?>
-            <?php require JModuleHelper::getLayoutPath('mod_instagram', '_image');?>
-        <?php } ?>
+            }
+            require JModuleHelper::getLayoutPath('mod_instagram', '_image');
+         } 
+         ?>
     </div>
     <p class="post-text"><?php echo $params->get('post_text', ''); ?></p>
 </div>

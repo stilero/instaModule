@@ -9,13 +9,13 @@
 // no direct access
 defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
-$document->addStyleSheet($modulePath.'css'.DS.'uvumi-gallery.css');
+$document->addStyleSheet($modulePath.'css'.DS.'uvumi'.DS.'uvumi-gallery.css');
 //$document->addStyleSheet($modulePath.'css'.DS.'style.css');
 $userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
 //JHtmlBehavior::framework();
 //JHtmlBehavior::framework(true);
-$document->addScript($modulePath.'js'.DS.'mootools-for-gallery.js');
-$document->addScript($modulePath.'js'.DS.'UvumiGallery-compressed.js');
+$document->addScript($modulePath.'js'.DS.'uvumi'.DS.'mootools-for-gallery.js');
+$document->addScript($modulePath.'js'.DS.'uvumi'.DS.'UvumiGallery-compressed.js');
 $js = "new UvumiGallery({
 container:'small-gallery',
 thumbSize:80,

@@ -9,14 +9,14 @@
 // no direct access
 defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
-$document->addStyleSheet($modulePath.'css'.DS.'ppgallery.css');
-$document->addStyleSheet($modulePath.'css'.DS.'dark-hive'.DS.'jquery-ui-1.8.6.custom.css');
+$document->addStyleSheet($modulePath.'css'.DS.'lightbox'.DS.'ppgallery.css');
+$document->addStyleSheet($modulePath.'css'.DS.'lightbox'.DS.'dark-hive'.DS.'jquery-ui-1.8.6.custom.css');
 $userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
 //$document->addScript($modulePath.'js'.DS.'jquery-1.7.2.min.js');
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js');
 $document->addScriptDeclaration('jQuery.noConflict();');
 $document->addScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js');
-$document->addScript($modulePath.'js'.DS.'ppgallery.js');
+$document->addScript($modulePath.'js'.DS.'lightbox'.DS.'ppgallery.js');
 $js = "jQuery( function($) { $('#gallery').ppGallery(); });";
 //$js = "jQuery( function($) { $('#gallery').replaceWith('<h2>New heading</h2>'); });";
 $document->addScriptDeclaration($js);

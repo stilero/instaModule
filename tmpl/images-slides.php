@@ -9,12 +9,12 @@
 // no direct access
 defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
-$document->addStyleSheet($modulePath.'css'.DS.'slides.css');
+$document->addStyleSheet($modulePath.'css'.DS.'slides'.DS.'slides.css');
 $userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js');
 $document->addScriptDeclaration('jQuery.noConflict();');
 $document->addScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js');
-$document->addScript($modulePath.'js'.DS.'slides.min.jquery.js');
+$document->addScript($modulePath.'js'.DS.'slides'.DS.'slides.min.jquery.js');
 
 $document->addScriptDeclaration('
     //$.noConflict();

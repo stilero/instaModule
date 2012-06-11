@@ -9,11 +9,11 @@
 // no direct access
 defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
-$document->addStyleSheet($modulePath.DS.'css'.DS.'style.css');
+$document->addStyleSheet($modulePath.DS.'css'.DS.'scroll'.DS.'style.css');
 $userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
 JHtmlBehavior::framework();
 JHtmlBehavior::framework(true);
-$document->addScript($modulePath.'js'.DS.'scrollGallery.js');
+$document->addScript($modulePath.'js'.DS.'scroll'.DS.'scrollGallery.js');
 $js = "window.addEvent('domready', function() {
     var myscrollGallery = new scrollGallery();
 });";
