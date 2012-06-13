@@ -18,7 +18,7 @@ JHTML::_('behavior.modal', 'a.instaimage');
 <div class="instagallery<?php echo $moduleclass_sfx; ?>">
     <p class="pre-text"><?php echo $params->get('pre_text', ''); ?></p>
     <div class="instaimages">
-        <? 
+        <?php 
         $i = 1; 
         $imagesToShow = $params->get('image_count', '30');
         foreach ($userInfo as $image) {
