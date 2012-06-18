@@ -7,7 +7,7 @@
     <authorUrl>http://www.stilero.com</authorUrl>
     <copyright>Copyright (C) 2012 Daniel Eliasson Stilero Webdesign Open Source Matters. All rights reserved.</copyright>	
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-    <version>1.02</version>
+    <version>1.1</version>
     <description>InstaGallery shows your Instagram images in a module</description>
     <files>
         <filename module="mod_instagram">mod_instagram.php</filename>
