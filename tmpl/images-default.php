@@ -10,7 +10,23 @@
 defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
 $document->addStyleSheet($modulePath.DS.'css'.DS.'style.css');
-$userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
+$postParams = null;
+$imageType = $params->get('display_type', '');
+switch ($imageType) {
+    case 'tags-name':
+        $postParams = $params->get('tags_name', '');
+        break;
+    case 'media-search':
+        $postParams = array(
+            'latitude' => $params->get('latitude', ''),
+            'longitude'  => $params->get('longitude', ''),
+            'distance'  => $params->get('distance', '1000')
+        );
+        break;
+    default:
+        break;
+}
+$userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''), $postParams);
 JHtmlBehavior::framework();
 JHtmlBehavior::framework(true);
 JHTML::_('behavior.modal', 'a.instaimage');
@@ -25,7 +41,11 @@ JHTML::_('behavior.modal', 'a.instaimage');
             if ($i++ > $imagesToShow){
                 break;
             }
-            require JModuleHelper::getLayoutPath('mod_instagram', '_image');
+            if($params->get('link_type', '0') == '0'){
+                require JModuleHelper::getLayoutPath('mod_instagram', '_image');
+            }else if($params->get('link_type', '0') == '1'){
+                require JModuleHelper::getLayoutPath('mod_instagram', '_instagram');
+            }
          } 
          ?>
     </div>

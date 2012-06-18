@@ -40,13 +40,73 @@
                     <option value="user-feed">MOD_INSTAGRAM_TYPE_USER_FEED</option>
                     <option value="user-liked">MOD_INSTAGRAM_TYPE_USER_LIKED</option>
                     <option value="most-popular">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
+                    <option value="tags-name">MOD_INSTAGRAM_TYPE_TAGS_NAME</option>
+                    <option value="media-search">MOD_INSTAGRAM_TYPE_MEDIA_SEARCH</option>
                 </field>
+                <field type="spacer" name="tagsspacer" class="text"
+                    label="MOD_INSTAGRAM_TAGS_NAME_SPACER"
+                />
+                <field name="tags_name" 
+                    type="text" 
+                    default="" 
+                    label="MOD_INSTAGRAM_TAGS_NAME" 
+                    description="MOD_INSTAGRAM_TAGS_NAME_DESC" 
+                />
+                <field type="spacer" name="locationspacer" class="text"
+                    label="MOD_INSTAGRAM_LOCATION_SPACER"
+                />
+                <field name="longitude" 
+                    type="text" 
+                    default="" 
+                    label="MOD_INSTAGRAM_LONGITUDE" 
+                    description="MOD_INSTAGRAM_LONGITUDE_DESC" 
+                />
+                <field name="latitude" 
+                    type="text" 
+                    default="" 
+                    label="MOD_INSTAGRAM_LATITUDE" 
+                    description="MOD_INSTAGRAM_LATITUDE_DESC" 
+                />
+                <field name="distance" 
+                    type="text" 
+                    default="1000" 
+                    label="MOD_INSTAGRAM_DISTANCE" 
+                    description="MOD_INSTAGRAM_DISTANCE_DESC" 
+                />
+                <field type="spacer" name="generalspacer" class="text"
+                    label="MOD_INSTAGRAM_GENERAL_SPACER"
+                />
                 <field name="image_count" 
                     type="text" 
                     default="30" 
                     label="MOD_INSTAGRAM_IMAGE_COUNT" 
                     description="MOD_INSTAGRAM_IMAGE_COUNT_DESC" 
                 />
+                <!-- Hidden for future use -->
+                <!--
+                <field
+                    name="likes-comments"
+                    type="list"
+                    default="1"
+                    label="MOD_INSTAGRAM_LIKES_COMMENTS"
+                    description="MOD_INSTAGRAM_LIKES_COMMENTS_DESC">
+                    <option
+                        value="1">YES</option>
+                    <option
+                        value="0">NO</option>
+                </field>
+                -->
+                <field
+                    name="link_type"
+                    type="list"
+                    default="0"
+                    label="MOD_INSTAGRAM_LINKTYPE"
+                    description="MOD_INSTAGRAM_LINKTYPE_DESC">
+                    <option
+                        value="0">MOD_INSTAGRAM_LINKTYPE_LIGHTBOX</option>
+                    <option
+                        value="1">MOD_INSTAGRAM_LINKTYPE_INSTAGRAM</option>
+                </field>
                 <field name="image_thumb_size" 
                     type="text" 
                     default="150" 

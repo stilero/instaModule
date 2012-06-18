@@ -2,7 +2,7 @@
 /**
 *  A simple PHP class for communicating with Instagram API
 *
-* @version  1.0
+* @version  1.1
 * @author Daniel Eliasson - www.stilero.com
 * @copyright  (C) 2012 Stilero Webdesign
 * @category library
@@ -99,20 +99,51 @@ class instaClass {
         return $this->doQuery($url, $postVars);
     }
     
-    public function fetchImages($userID='self', $count='30', $callType=''){
+    public function fetchImages($userID='self', $count='30', $callType='', $callParams=''){
         $path = '';
         switch ($callType) {
             case 'user-feed':
-                $path = '/users/'.$userID.'/feed/';                
+                $path = '/users/'.$userID.'/feed/';
+                $postParams = array(
+                    'count' =>  $count
+                );
                 break;
             case 'user-liked':
                 $path = '/users/'.$userID.'/media/liked/';               
+                 $postParams = array(
+                    'count' =>  $count
+                );
                 break;
             case 'most-popular':
                 $path = '/media/popular';
+                $postParams = array(
+                    'count' =>  $count
+                );
                 break;
             case 'user-info':
                 $path = '/users/'.$userID;
+                $postParams = array(
+                    'count' =>  $count
+                );
+                break;
+            case 'tags-search':
+                $path = '/tags/search';
+                $postParams = array(
+                    'q' =>  $callParams
+                );
+                break;
+            case 'tags-name':
+                $path = '/tags/'.$callParams.'/media/recent/';
+                break;
+            case 'media-search':
+                // Use array with 'longitude', 'latitude' and 'distance' as callParams
+                $path = '/media/search';
+                $postParams = array(
+                    'lng' =>  $callParams['longitude'],
+                    'lat' =>  $callParams['latitude'],
+                    'distance' =>  $callParams['distance'],
+                    'count' =>  $count
+                );
                 break;
             default:
                 $path = '/users/'.$userID.'/media/recent/';
@@ -121,8 +152,10 @@ class instaClass {
         $baseUrlAndPath = $this->config['instaBaseURL'].$path;
         $postVars = array(
             'access_token'      => $this->accessToken,
-            'count'             =>  $count
         );
+        if(isset($postParams)){
+            $postVars = array_merge($postVars, $postParams);
+        }
         $requestURI = $baseUrlAndPath ."?". http_build_query($postVars);
         $jsonResponse = $this->doQuery($requestURI, $postVars, FALSE, $this->HTTPHeader());
         return $this->jsonResponseToArray($jsonResponse);
@@ -179,6 +212,12 @@ class instaClass {
                 $image['latitude'] = isset($value->location->latitude) ? $value->location->latitude : '';
                 $image['longitude'] = isset($value->location->longitude) ? $value->location->longitude : '';
                 $image['id'] = $value->id;
+                $image['likes'] = $value->likes->count;
+                $image['comments'] = $value->comments->count;
+                $image['link'] = $value->link;
+                $image['user-name'] = $value->user->username;
+                $image['user-profilepic'] = $value->user->profile_picture;
+                $image['user-fullname'] = $value->user->full_name;
                 $images[] = $image;
             }
         }

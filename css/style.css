@@ -6,7 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
-.instagallery a.instaimage{
+.instagallery a.instaimage, .instagallery a.instalink{
     float:left;
     margin:1em;
 }
