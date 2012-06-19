@@ -9,7 +9,7 @@
 // no direct access
 defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
-$document->addStyleSheet($modulePath.DS.'css'.DS.'style.css');
+$document->addStyleSheet($modulePath.'css'.DS.'style.css');
 $postParams = null;
 $imageType = $params->get('display_type', '');
 switch ($imageType) {
@@ -41,11 +41,16 @@ JHTML::_('behavior.modal', 'a.instaimage');
             if ($i++ > $imagesToShow){
                 break;
             }
+            print '<div class="instaimagecont">';
             if($params->get('link_type', '0') == '0'){
                 require JModuleHelper::getLayoutPath('mod_instagram', '_image');
             }else if($params->get('link_type', '0') == '1'){
                 require JModuleHelper::getLayoutPath('mod_instagram', '_instagram');
             }
+            if($params->get('likes-comments', '0') == '1'){
+                require JModuleHelper::getLayoutPath('mod_instagram', '_likes-comments');
+            }
+            print '</div>';
          } 
          ?>
     </div>

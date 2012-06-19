@@ -5,11 +5,29 @@
     Description:
         Purpose of the stylesheet follows.
 */
-
-.instagallery a.instaimage, .instagallery a.instalink{
+.instagallery .instaimagecont{
+    display:block;
     float:left;
     margin:1em;
 }
+.instagallery .likes-comments{
+    margin-top: 0.4em;
+}
+.instagallery .likes-comments .likes{
+    float:left;
+    margin-left: 1em;
+}
+.instagallery .instaicon{
+    float: left;
+    height: 11px;
+    margin-right: 0.4em;
+    width: 11px;
+}
+.instagallery .likes-comments .comments{
+    float:right;
+    margin-right: 1em;
+}
+
 .instagallery .post-text{
     clear:left;
 }
