@@ -24,18 +24,16 @@ $noLikesComments = array('user-followers', 'user-follows');
             if ($i++ > $imageCount){
                 break;
             }
-            if(!empty($image)){
-                print '<div class="instaimagecont">';
-                if($params->get('link_type', '0') == '0' || in_array($displayType, $noLikesComments)){
-                    require JModuleHelper::getLayoutPath('mod_instagram', '_image');
-                }else if($params->get('link_type', '0') == '1'){
-                    require JModuleHelper::getLayoutPath('mod_instagram', '_instagram');
-                }
-                if($params->get('likes-comments', '0') == '1' && !in_array($displayType, $noLikesComments)){
-                    require JModuleHelper::getLayoutPath('mod_instagram', '_likes-comments');
-                }
-                print '</div>';
+            print '<div class="instaimagecont">';
+            if($params->get('link_type', '0') == '0' || in_array($displayType, $noLikesComments)){
+                require JModuleHelper::getLayoutPath('mod_instagram', '_image');
+            }else if($params->get('link_type', '0') == '1'){
+                require JModuleHelper::getLayoutPath('mod_instagram', '_instagram');
             }
+            if($params->get('likes-comments', '0') == '1' && !in_array($displayType, $noLikesComments)){
+                require JModuleHelper::getLayoutPath('mod_instagram', '_likes-comments');
+            }
+            print '</div>';
          } 
          ?>
     </div>

@@ -153,6 +153,7 @@ class instaClass {
                 break;
         }
         $baseUrlAndPath = $this->config['instaBaseURL'].$path;
+        
         $postVars = array(
             'access_token'      => $this->accessToken,
         );
@@ -160,8 +161,22 @@ class instaClass {
             $postVars = array_merge($postVars, $postParams);
         }
         $requestURI = $baseUrlAndPath ."?". http_build_query($postVars);
+        
+        if($callType == 'next-page'){
+            $requestURI = $path;
+        }
         $jsonResponse = $this->doQuery($requestURI, $postVars, FALSE, $this->HTTPHeader());
-        return $this->jsonResponseToArray($jsonResponse);
+        $images = $this->jsonResponseToArray($jsonResponse);
+        $nextPage = $images['nextpage'];
+        array_pop($images);
+        while (count($images) < $count && !empty($nextPage)){
+            $jsonResponse2 = $this->doQuery($nextPage, $postVars, FALSE, $this->HTTPHeader());
+            $images2 = $this->jsonResponseToArray($jsonResponse2);
+            $images = array_merge($images, $images2);
+            $nextPage = $images2['nextpage'];
+        }
+        return $images;
+        
     }
     
     public function fetchInfo($userID='self', $callType='', $callParams=''){
@@ -215,10 +230,8 @@ class instaClass {
     private function jsonResponseToUserArray($response){
         $ResponseJSON = json_decode($response);
         $data = $ResponseJSON->data;
-        //var_dump($data);exit;
         $user=array();
         if(isset($data)){
-            //foreach ($data as $value) {
                 $user['id'] = $data->id;
                 $user['username'] = $data->username;
                 $user['full_name'] = $data->full_name;
@@ -256,6 +269,7 @@ class instaClass {
                 $images[] = $image;
             }
         }
+        $images['nextpage'] = $ResponseJSON->pagination->next_url;
         return $images;
     }
     

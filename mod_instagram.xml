@@ -7,7 +7,7 @@
     <authorUrl>http://www.stilero.com</authorUrl>
     <copyright>Copyright (C) 2012 Daniel Eliasson Stilero Webdesign Open Source Matters. All rights reserved.</copyright>	
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-    <version>1.21</version>
+    <version>1.3</version>
     <description>InstaGallery shows your Instagram images in a module</description>
     <files>
         <filename module="mod_instagram">mod_instagram.php</filename>
@@ -129,12 +129,6 @@
                     description="MOD_INSTAGRAM_GALLERY_TYPE_DESC"
                 >
                     <option value="default">MOD_INSTAGRAM_GALLERY_TYPE_DEFAULT</option>
-                    <option value="scroll">MOD_INSTAGRAM_GALLERY_TYPE_SCROLL</option>
-                    <option value="uvumi">MOD_INSTAGRAM_GALLERY_TYPE_UVUMI</option>
-                    <option value="lightbox">MOD_INSTAGRAM_GALLERY_TYPE_LIGHTBOX</option>
-                    <option value="slides">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
-                    <option value="shinetime">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
-                    <option value="gallerific">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
                 </field>
                  <field name="pre_text"
                     type="textarea" 
