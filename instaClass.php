@@ -135,6 +135,9 @@ class instaClass {
             case 'tags-name':
                 $path = '/tags/'.$callParams.'/media/recent/';
                 break;
+            case 'next-page':
+                $path = $callParams;
+                break;
             case 'media-search':
                 // Use array with 'longitude', 'latitude' and 'distance' as callParams
                 $path = '/media/search';
@@ -169,6 +172,12 @@ class instaClass {
                 $postParams = array(
                     'q' =>  $userID
                 );
+                break;
+            case 'user-followers':
+                $path = '/users/'.$userID.'/followed-by';
+                break;
+            case 'user-follows':
+                $path = '/users/'.$userID.'/follows';
                 break;
             default:
                 $path = '/users/'.$userID.'/media/recent/';

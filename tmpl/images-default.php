@@ -10,34 +10,10 @@
 defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
 $document->addStyleSheet($modulePath.'css'.DS.'style.css');
-$postParams = null;
-$imageType = $params->get('display_type', '');
-switch ($imageType) {
-    case 'tags-name':
-        $postParams = $params->get('tags_name', '');
-        break;
-    case 'media-search':
-        $postParams = array(
-            'latitude' => $params->get('latitude', ''),
-            'longitude'  => $params->get('longitude', ''),
-            'distance'  => $params->get('distance', '1000')
-        );
-        break;
-    default:
-        break;
-}
-$userName = $params->get('user_name', 'self');
-$userID = $userName;
-if($userName != 'self'){
-    $userInfoJSON = $Instagram->fetchInfo($userName, 'users-search');
-    $userID = $userInfoJSON->data[0]->id;
-}
-$displayType = $params->get('display_type', 'user-recent');
-$imageCount = $params->get('image_count', '30');
-$images = $Instagram->fetchImages($userID, $imageCount, $displayType, $postParams);
 JHtmlBehavior::framework();
 JHtmlBehavior::framework(true);
 JHTML::_('behavior.modal', 'a.instaimage');
+$noLikesComments = array('user-followers', 'user-follows');
 ?>
 <div class="instagallery<?php echo $moduleclass_sfx; ?>">
     <p class="pre-text"><?php echo $params->get('pre_text', ''); ?></p>
@@ -49,12 +25,12 @@ JHTML::_('behavior.modal', 'a.instaimage');
                 break;
             }
             print '<div class="instaimagecont">';
-            if($params->get('link_type', '0') == '0'){
+            if($params->get('link_type', '0') == '0' || in_array($displayType, $noLikesComments)){
                 require JModuleHelper::getLayoutPath('mod_instagram', '_image');
             }else if($params->get('link_type', '0') == '1'){
                 require JModuleHelper::getLayoutPath('mod_instagram', '_instagram');
             }
-            if($params->get('likes-comments', '0') == '1'){
+            if($params->get('likes-comments', '0') == '1' && !in_array($displayType, $noLikesComments)){
                 require JModuleHelper::getLayoutPath('mod_instagram', '_likes-comments');
             }
             print '</div>';

@@ -11,13 +11,7 @@ defined('_JEXEC') or die('Restricted access'); // no direct access
 
 require_once (dirname(__FILE__).DS.'helper.php');
 $modulePath = JURI::root(true).DS.'modules'.DS.'mod_instagram'.DS;
-
-//$item = modInstagramHelper::getItem($params);
 $Instagram = modInstagramHelper::getInstagramObject($params);
-//$images = $instagram->recentUserImages();
-//$list = modArticlesNewsHelper::getList($params);
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
-$galleryType= $params->get('gallery_type', 'default');
-require JModuleHelper::getLayoutPath('mod_instagram','images-'.$galleryType);
-//require_once ('helper.php');
+require JModuleHelper::getLayoutPath('mod_instagram','default');
 ?>
