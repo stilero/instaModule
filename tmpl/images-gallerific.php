@@ -11,11 +11,11 @@ defined('_JEXEC') or die;
 $galleryName = 'gallerific';
 $document =& JFactory::getDocument();
 //$document->addStyleSheet($modulePath.'css'.DS.'slides.css');
-$userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
+$images = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js');
+$document->addScriptDeclaration('jQuery.noConflict();');
 $document->addScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js');
 $document->addScript($modulePath.'js'.DS.$galleryName.DS.'jquery.galleriffic.js');
-$document->addScriptDeclaration('jQuery.noConflict();');
 
 $script = "jQuery(function($) {
     var gallery = $('#thumbs').galleriffic({
@@ -60,7 +60,7 @@ $document->addScriptDeclaration($script);
     <div id="caption"></div>
     <div id="thumbs">
         <ul class="thumbs noscript">
-        <?php foreach ($userInfo as $image) { ?>
+        <?php foreach ($images as $image) { ?>
             <li>
                 <a class="thumb" name="optionalCustomIdentifier" href="<?php echo $image['full'];?>" title="<?php echo $image['caption'];?>">
                     <img src="<?php echo $image['thumb'];?>" alt="<?php echo $image['caption'];?>" />
@@ -78,7 +78,7 @@ $document->addScriptDeclaration($script);
     
     <div id="slides">
             <div class="slides_container">
-                <?php foreach ($userInfo as $image) { ?>
+                <?php foreach ($images as $image) { ?>
                 <div>
                     <img src="<?php echo $image['full'];?>">
                 </div>

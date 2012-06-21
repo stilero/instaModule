@@ -10,7 +10,7 @@
 defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
 $document->addStyleSheet($modulePath.DS.'css'.DS.'style.css');
-$userInfo = $Instagram->fetchUserInfoArray('self');
+$images = $Instagram->fetchUserInfoArray('self');
 JHTML::_('behavior.modal', 'a.instaimage');
 ?>
 <h2><?php echo $module->title; ?></h2>
@@ -18,16 +18,16 @@ JHTML::_('behavior.modal', 'a.instaimage');
     <p class="pre-text"><?php echo $params->get('pre_text', ''); ?></p>
     <div class="instauserinfo">
         <span class="instaprofile">
-            <img src="<?php echo $userInfo['profile_picture']; ?>" />
+            <img src="<?php echo $images['profile_picture']; ?>" />
         </span>
-        <span class="instauser"><h2><?php echo $userInfo['username'] ?></h2></span>
-        <span class="instaname"><h3><?php echo $userInfo['full_name'] ?></h3></span>
-        <span class="instabio"><p><?php echo $userInfo['bio'] ?></p></span>
-        <span class="instaweb"><a href="<?php echo $userInfo['website'] ?>" target="_blank">Website</a></span>
+        <span class="instauser"><h2><?php echo $images['username'] ?></h2></span>
+        <span class="instaname"><h3><?php echo $images['full_name'] ?></h3></span>
+        <span class="instabio"><p><?php echo $images['bio'] ?></p></span>
+        <span class="instaweb"><a href="<?php echo $images['website'] ?>" target="_blank">Website</a></span>
         <span class="instacounts">
-            <span class="instamedia"><?php echo $userInfo['media'] ?></span>
-            <span class="instafollows"><?php echo $userInfo['follows'] ?></span>
-            <span class="instafollowers"><?php echo $userInfo['followed_by'] ?></span>
+            <span class="instamedia"><?php echo $images['media'] ?></span>
+            <span class="instafollows"><?php echo $images['follows'] ?></span>
+            <span class="instafollowers"><?php echo $images['followed_by'] ?></span>
         </span>
     </div>
     <p class="post-text"><?php echo $params->get('post_text', ''); ?></p>

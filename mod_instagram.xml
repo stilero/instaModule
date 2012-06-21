@@ -7,7 +7,7 @@
     <authorUrl>http://www.stilero.com</authorUrl>
     <copyright>Copyright (C) 2012 Daniel Eliasson Stilero Webdesign Open Source Matters. All rights reserved.</copyright>	
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-    <version>1.2</version>
+    <version>1.21</version>
     <description>InstaGallery shows your Instagram images in a module</description>
     <files>
         <filename module="mod_instagram">mod_instagram.php</filename>
@@ -42,7 +42,18 @@
                     <option value="most-popular">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
                     <option value="tags-name">MOD_INSTAGRAM_TYPE_TAGS_NAME</option>
                     <option value="media-search">MOD_INSTAGRAM_TYPE_MEDIA_SEARCH</option>
+                    <option value="user-followers">MOD_INSTAGRAM_TYPE_FOLLOWERS</option>
+                    <option value="user-follows">MOD_INSTAGRAM_TYPE_FOLLOWS</option>
                 </field>
+                <field type="spacer" name="userspacer" class="text"
+                    label="MOD_INSTAGRAM_USER_SPACER"
+                />
+                <field name="user_name" 
+                    type="text" 
+                    default="" 
+                    label="MOD_INSTAGRAM_USER_NAME" 
+                    description="MOD_INSTAGRAM_USER_NAME_DESC" 
+                />
                 <field type="spacer" name="tagsspacer" class="text"
                     label="MOD_INSTAGRAM_TAGS_NAME_SPACER"
                 />
@@ -112,7 +123,6 @@
                     description="MOD_INSTAGRAM_IMAGE_THUMB_SIZE_DESC" 
                 />
                 <!-- Hidden for future use -->
-                <!--
                 <field name="gallery_type" 
                     type="list" default="default" 
                     label="MOD_INSTAGRAM_GALLERY_TYPE" 
@@ -126,7 +136,6 @@
                     <option value="shinetime">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
                     <option value="gallerific">MOD_INSTAGRAM_TYPE_MOST_POPULAR</option>
                 </field>
-                -->
                  <field name="pre_text"
                     type="textarea" 
                     label="MOD_INSTAGRAM_PRE_TEXT"

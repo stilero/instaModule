@@ -10,7 +10,7 @@
 defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
 $document->addStyleSheet($modulePath.'css'.DS.'slides'.DS.'slides.css');
-$userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
+$images = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js');
 $document->addScriptDeclaration('jQuery.noConflict();');
 $document->addScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js');
@@ -29,7 +29,7 @@ $document->addScriptDeclaration('
     
     <div id="slides">
             <div class="slides_container">
-                <?php foreach ($userInfo as $image) { ?>
+                <?php foreach ($images as $image) { ?>
                 <div>
                     <img src="<?php echo $image['full'];?>">
                 </div>

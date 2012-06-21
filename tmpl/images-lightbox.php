@@ -11,7 +11,7 @@ defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
 $document->addStyleSheet($modulePath.'css'.DS.'lightbox'.DS.'ppgallery.css');
 $document->addStyleSheet($modulePath.'css'.DS.'lightbox'.DS.'dark-hive'.DS.'jquery-ui-1.8.6.custom.css');
-$userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
+$images = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''));
 //$document->addScript($modulePath.'js'.DS.'jquery-1.7.2.min.js');
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js');
 $document->addScriptDeclaration('jQuery.noConflict();');
@@ -25,7 +25,7 @@ $document->addScriptDeclaration($js);
 <div class="instagallery<?php echo $moduleclass_sfx; ?>">
     <p class="pre-text"><?php echo $params->get('pre_text', ''); ?></p>
     <ul id="gallery">
-        <?php foreach ($userInfo as $image) { ?>
+        <?php foreach ($images as $image) { ?>
            <li><a href="<?php echo $image['full'];?>"><img src="<?php echo $image['thumb'] ?>" /></a></li>
         <?php } ?>
     </ul>

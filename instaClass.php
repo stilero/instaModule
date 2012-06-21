@@ -161,6 +161,32 @@ class instaClass {
         return $this->jsonResponseToArray($jsonResponse);
     }
     
+    public function fetchInfo($userID='self', $callType='', $callParams=''){
+        $path = '';
+        switch ($callType) {
+            case 'users-search':
+                $path = '/users/search';
+                $postParams = array(
+                    'q' =>  $userID
+                );
+                break;
+            default:
+                $path = '/users/'.$userID.'/media/recent/';
+                break;
+        }
+        $baseUrlAndPath = $this->config['instaBaseURL'].$path;
+        $postVars = array(
+            'access_token'      => $this->accessToken,
+        );
+        if(isset($postParams)){
+            $postVars = array_merge($postVars, $postParams);
+        }
+        $requestURI = $baseUrlAndPath ."?". http_build_query($postVars);
+        $jsonResponse = $this->doQuery($requestURI, $postVars, FALSE, $this->HTTPHeader());
+        $decodedJSON = json_decode($jsonResponse);
+        return $decodedJSON;
+    }
+    
     public function fetchUserInfoJSON($userID='self'){
         $path = '/users/'.$userID;
         $baseUrlAndPath = $this->config['instaBaseURL'].$path;

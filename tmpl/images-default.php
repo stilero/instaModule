@@ -26,7 +26,15 @@ switch ($imageType) {
     default:
         break;
 }
-$userInfo = $Instagram->fetchImages('self', $params->get('image_count', '30'), $params->get('display_type', ''), $postParams);
+$userName = $params->get('user_name', 'self');
+$userID = $userName;
+if($userName != 'self'){
+    $userInfoJSON = $Instagram->fetchInfo($userName, 'users-search');
+    $userID = $userInfoJSON->data[0]->id;
+}
+$displayType = $params->get('display_type', 'user-recent');
+$imageCount = $params->get('image_count', '30');
+$images = $Instagram->fetchImages($userID, $imageCount, $displayType, $postParams);
 JHtmlBehavior::framework();
 JHtmlBehavior::framework(true);
 JHTML::_('behavior.modal', 'a.instaimage');
@@ -36,9 +44,8 @@ JHTML::_('behavior.modal', 'a.instaimage');
     <div class="instaimages">
         <?php 
         $i = 1; 
-        $imagesToShow = $params->get('image_count', '30');
-        foreach ($userInfo as $image) {
-            if ($i++ > $imagesToShow){
+        foreach ($images as $image) {
+            if ($i++ > $imageCount){
                 break;
             }
             print '<div class="instaimagecont">';
