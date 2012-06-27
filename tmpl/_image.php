@@ -11,4 +11,4 @@ $document =& JFactory::getDocument();
 $document->addScript($modulePath.'js'.DS.'imageloader.js');
 $imageThumbSize = $params->get('image_thumb_size', '150') > 150 ? 150 : $params->get('image_thumb_size', '150');
 ?>
-<a class="instaimage" href="<?php echo $image['full'];?>" title="<?php echo $image['caption'] ?>"><img src="<?php echo $image['thumb'] ?>" alt="image1" height="<?php echo $imageThumbSize; ?>" width="<?php echo $imageThumbSize; ?>" /></a>
+<a class="instaimage" href="<?php echo $image['full'];?>" title="<?php echo $image['caption'] ?>" ><img src="<?php echo $image['thumb'] ?>" alt="image1" height="<?php echo $imageThumbSize; ?>" width="<?php echo $imageThumbSize; ?>" /></a>

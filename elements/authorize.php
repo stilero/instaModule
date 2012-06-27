@@ -66,7 +66,7 @@ if(version_compare(JVERSION, '1.6.0', '<')){
             $language =& JFactory::getLanguage();
             $language->load('mod_instagram', JPATH_ADMINISTRATOR, 'en-GB', true);
             $language->load('mod_instagram', JPATH_ADMINISTRATOR, null, true);
-            $base_path = JURI::root(true).DS.'modules'.DS.'mod_instagram'.DS;
+            $base_path = JURI::root(true).'/modules/mod_instagram/';
             $this->config = array(
                 'jsAsset'       =>      'js/checkclientinfo.js',
                 'images'   =>      $base_path.'images'.DS

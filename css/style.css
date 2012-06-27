@@ -12,20 +12,31 @@
 }
 .instagallery .likes-comments{
     margin-top: 0.4em;
+    height: auto;
+    display: block;
 }
 .instagallery .likes-comments .likes{
     float:left;
-    margin-left: 1em;
+    margin-left: 0.3em;
 }
 .instagallery .instaicon{
     float: left;
     height: 11px;
-    margin-right: 0.4em;
+    margin-right: 0.3em;
     width: 11px;
+}
+.instagallery .usericon{
+    float: left;
+    height: 22px;
+    margin-right: 0.4em;
+    width: 22px;
+}
+.instagallery .username{
+    float: left;
 }
 .instagallery .likes-comments .comments{
     float:right;
-    margin-right: 1em;
+    margin-right: 0.3em;
 }
 
 .instagallery .post-text{
