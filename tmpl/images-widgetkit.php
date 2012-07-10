@@ -1,13 +1,19 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
 <div class="wk-gallery wk-gallery-wall clearfix polaroid ">
-    <?php foreach ($images as $image) { ?>
-        <?php if (!empty($image)){ ?>
-        <a class="" href="<?php echo $image['full'];?>" data-lightbox="group:25-4fa6cb3aaf15c" title="<?php echo $image['caption'] ?>">
-            <div>
-                <img src="<?php echo $image['thumb'] ?>" alt="<?php echo $image['caption'] ?>" height="150" width="150" />
-                <p class="title"><?php echo substr($image['caption'], 0, 20) ?></p>
-            </div>
-        </a>
-        <?php } ?>
-    <?php } ?>
+    <?php 
+        $i = 1; 
+        foreach ($images as $image) {
+            if ($i++ > $imageCount){
+                break;
+            }
+            if(!empty($image)){
+                print '<a class="" href="'.$image['full'].'" data-lightbox="group:25-4fa6cb3aaf15c" title="'.$image['caption'].'">';
+                print '<div>';
+                print '<img src="'.$image['thumb'].'" alt="'.$image['caption'].'" height="150" width="150" />';
+                print '<p class="title">'.substr($image['caption'], 0, 20).'</p>';
+                print '</div>';
+                print '</a>';
+            }
+         } 
+         ?>
 </div>
