@@ -10,9 +10,9 @@
 defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
 $document->addStyleSheet($modulePath.'css'.DS.'style.css');
-JHtmlBehavior::framework();
-JHtmlBehavior::framework(true);
-JHTML::_('behavior.modal', 'a.instaimage');
+JHtml::_('behavior.framework');
+JHtml::_('behavior.framework', true);
+JHtml::_('behavior.modal', 'a.instaimage');
 $noLikesComments = array('user-followers', 'user-follows');
 ?>
 <div class="instagallery<?php echo $moduleclass_sfx; ?>">
