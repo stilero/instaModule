@@ -53,7 +53,7 @@ if(version_compare(JVERSION, '1.6.0', '<')){
         protected $type = 'helpersuri';
 
         protected function getInput(){
-            $moduleAbsPath = JURI::root().'modules'.DS.'mod_instagram'.DS.'helpers'.DS;
+            $moduleAbsPath = JURI::root().'modules/mod_instagram/helpers/';
             $htmlCode = '<input type="hidden" id="'.$this->id.'" name="'.$this->name.'" value="'.$moduleAbsPath.'"/>';
             return $htmlCode;
         }

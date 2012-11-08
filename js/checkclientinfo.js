@@ -1,10 +1,23 @@
 //jform_params_client_id
 window.addEvent('domready', function(){
-    var clientID = $('jform_params_client_id').value;
-    var clientSecret = $('jform_params_client_secret').value;
-    var redirectURI = $('jform_params_redirect_uri').value;
+//    var clientID = $('jform_params_client_id').value;
+//    var clientSecret = $('jform_params_client_secret').value;
+//    var redirectURI = $('jform_params_redirect_uri').value;
+//    var authCode = $('jform_params_auth_code').value;
+//    var catcherURI = $('jform_params_helpers_uri').value + 'catcher.php';
+
+    var clientIdInput = $('jform_params_client_id');
+    var clientID = clientIdInput.value;
+    var clientSecretInput = $('jform_params_client_secret');
+    var clientSecret = clientSecretInput.value;
+    var redirectURIInput = $('jform_params_redirect_uri');
+    var redirectURI = redirectURIInput.value;
     var authCode = $('jform_params_auth_code').value;
-    var catcherURI = $('jform_params_helpers_uri').value + 'catcher.php';
+    var accessTokenInput = $('jform_params_access_token');
+    var accessToken = accessTokenInput.value;
+    //var catcherURI = $('jform_params_helpers_uri').value + 'catcher.php';
+    var catcherURI = $('jform_params_redirect_uri').value;
+    var authButton = $('jform_params_authorize');
 
     var sendVars;
         
@@ -18,12 +31,12 @@ window.addEvent('domready', function(){
     
     var buttonDisplay = function(){
         if(clientID == '' || clientSecret == '' || redirectURI == ''){
-            $('jform_params_authorize').setStyle( 'display', 'none');
+            authButton.setStyle( 'display', 'none');
         }else{
              setLinkHref();
-            $('jform_params_authorize').setStyle( 'opacity', '0');
-            $('jform_params_authorize').setStyle( 'display', 'block');
-            $('jform_params_authorize').fade('in');
+             authButton.setStyle( 'opacity', '0');
+             authButton.setStyle( 'display', 'block');
+             authButton.fade('in');
         }
     };
     
@@ -34,14 +47,14 @@ window.addEvent('domready', function(){
                 response.error_message;
                 alert(errormsg);
         }else{
-            $('jform_params_access_token').value = response.access_token;
-            $('jform_params_auth_code').value = '';        
+            accessToken = response.access_token;
+            authCode.value = '';        
             alert(MOD_INSTAGRAM_JS_SUCCESS);
         }
     };
     
     var requestAccessToken = function(){
-        authCode = $('jform_params_auth_code').value;
+        authCode = authCode;
         var reqUrl = $('jform_params_helpers_uri').value + 'authorizer.php';
         sendVars = 'client_id=' + clientID +
             '&client_secret=' + clientSecret +

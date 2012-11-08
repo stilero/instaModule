@@ -161,12 +161,14 @@
                     type="text" default="" 
                     label="MOD_INSTAGRAM_CLIENT_ID" 
                     description="MOD_INSTAGRAM_CLIENT_ID_DESC" 
+                    size="50"
                 />
                 <field 
                     name="client_secret" 
                     type="text" default="" 
                     label="MOD_INSTAGRAM_CLIENT_SECRET" 
                     description="MOD_INSTAGRAM_CLIENT_SECRET_DESC" 
+                    size="50"
                 />
                 <field 
                     name="redirect_uri" 

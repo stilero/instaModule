@@ -53,15 +53,15 @@ if(version_compare(JVERSION, '1.6.0', '<')){
         protected $type = 'redirecturi';
 
         protected function getInput(){
-            $moduleAbsPath = JURI::root();
-            $htmlCode = '<input type="text" id="'.$this->id.'" name="'.$this->name.'" value="'.$moduleAbsPath.'"/>';
+            $moduleAbsPath = JURI::root().'modules/mod_instagram/helpers/catcher.php';
+            $htmlCode = '<input type="text" id="'.$this->id.'" name="'.$this->name.'" value="'.$moduleAbsPath.'" size="50" />';
             return $htmlCode;
         }
         
         protected function getLabel(){
-            $toolTip = JText::_(MOD_INSTAGRAM_REDIRECT_URI_DESC);
-            $text = JText::_(MOD_INSTAGRAM_REDIRECT_URI);
-            $labelHTML = '<label id="'.$this->id.'-lbl" for="'.$this->id.'" class="hasTip" title="'.$text.'::'.$toolTip.'">'.$text.' <small>('.JTEXT::_(MOD_INSTAGRAM_REDIRECT_URI_SMALL).')</small></label>';
+            $toolTip = JText::_('MOD_INSTAGRAM_REDIRECT_URI_DESC');
+            $text = JText::_('MOD_INSTAGRAM_REDIRECT_URI');
+            $labelHTML = '<label id="'.$this->id.'-lbl" for="'.$this->id.'" class="hasTip" title="'.$text.'::'.$toolTip.'">'.$text.' <small>('.JTEXT::_('MOD_INSTAGRAM_REDIRECT_URI_SMALL').')</small></label>';
             return $labelHTML;        }
     }//End Class
 }

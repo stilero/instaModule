@@ -66,10 +66,10 @@ if(version_compare(JVERSION, '1.6.0', '<')){
             $language =& JFactory::getLanguage();
             $language->load('mod_instagram', JPATH_ADMINISTRATOR, 'en-GB', true);
             $language->load('mod_instagram', JPATH_ADMINISTRATOR, null, true);
-            $base_path = JURI::root(true).'/modules/mod_instagram/';
+            $base_path = JURI::root().'modules/mod_instagram/';
             $this->config = array(
                 'jsAsset'       =>      'js/checkclientinfo.js',
-                'images'   =>      $base_path.'images'.DS
+                'images'   =>      $base_path.'images/'
             );
             $this->addTranslationJS();
             $document->addScript($base_path.$this->config['jsAsset']);
@@ -77,10 +77,10 @@ if(version_compare(JVERSION, '1.6.0', '<')){
         }
         
         protected function getLabel(){
-            $toolTip = JText::_(MOD_INSTAGRAM_INSTRUCTIONS_DESC);
-            $text = JText::_(MOD_INSTAGRAM_INSTRUCTIONS_LABEL);
+            $toolTip = JText::_('MOD_INSTAGRAM_INSTRUCTIONS_DESC');
+            $text = JText::_('MOD_INSTAGRAM_INSTRUCTIONS_LABEL');
             $labelHTML = '<label id="'.$this->id.'-lbl" for="'.$this->id.'" class="hasTip" title="'.$text.'::'.$toolTip.'">'.$text.'</label>';
-            return ;
+            return $labelHTML;
         }
         
         private function getParams(){
@@ -100,8 +100,8 @@ if(version_compare(JVERSION, '1.6.0', '<')){
         
         private function addTranslationJS(){
             $document =& JFactory::getDocument();
-            $jsTranslationStrings = 'var MOD_INSTAGRAM_JS_SUCCESS = "'.JText::_(MOD_INSTAGRAM_JS_SUCCESS).'";';
-            $jsTranslationStrings .= 'var MOD_INSTAGRAM_JS_FAILURE = "'.JText::_(MOD_INSTAGRAM_JS_FAILURE).'";';
+            $jsTranslationStrings = 'var MOD_INSTAGRAM_JS_SUCCESS = "'.JText::_('MOD_INSTAGRAM_JS_SUCCESS').'";';
+            $jsTranslationStrings .= 'var MOD_INSTAGRAM_JS_FAILURE = "'.JText::_('MOD_INSTAGRAM_JS_FAILURE').'";';
             $document->addScriptDeclaration($jsTranslationStrings);        
         }
         
@@ -111,7 +111,7 @@ if(version_compare(JVERSION, '1.6.0', '<')){
                     '<a '.
                     'id="'.$id.'" '.
                     'title="'.JText::_('MOD_INSTAGRAM_AUTHORIZE').'" '.
-                    'href="'.$link.'" '.
+                    'href="#" '.
                     'target="_blank" >'.
                     '<img src="'.$buttonImage.'" />'.
                     '</a>';
