@@ -10,6 +10,7 @@
 defined('_JEXEC') or die('Restricted access'); // no direct access
 
 require_once (dirname(__FILE__).DS.'helper.php');
+define('MODULEURI', JURI::root().'modules/mod_instagram/');
 $modulePath = JURI::root(true).DS.'modules'.DS.'mod_instagram'.DS;
 $Instagram = modInstagramHelper::getInstagramObject($params);
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));

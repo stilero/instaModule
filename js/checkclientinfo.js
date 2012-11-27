@@ -13,6 +13,7 @@ window.addEvent('domready', function(){
     var redirectURIInput = $('jform_params_redirect_uri');
     var redirectURI = redirectURIInput.value;
     var authCode = $('jform_params_auth_code').value;
+    var authCodeInput = $('jform_params_auth_code');
     var accessTokenInput = $('jform_params_access_token');
     var accessToken = accessTokenInput.value;
     //var catcherURI = $('jform_params_helpers_uri').value + 'catcher.php';
@@ -47,8 +48,8 @@ window.addEvent('domready', function(){
                 response.error_message;
                 alert(errormsg);
         }else{
-            accessToken = response.access_token;
-            authCode.value = '';        
+            accessTokenInput.value = response.access_token;
+            authCodeInput.value = '';        
             alert(MOD_INSTAGRAM_JS_SUCCESS);
         }
     };

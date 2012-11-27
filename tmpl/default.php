@@ -50,6 +50,9 @@ if($displayType=='user-followers' || $displayType=='user-follows'){
 }else{
     $images = $Instagram->fetchImages($userID, $imageCount, $displayType, $postParams);
 }   
+if(count($images) > 0){
     require JModuleHelper::getLayoutPath('mod_instagram', $galleryType);
+}
+
 
 ?>

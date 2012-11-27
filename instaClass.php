@@ -167,6 +167,9 @@ class instaClass {
         }
         $jsonResponse = $this->doQuery($requestURI, $postVars, FALSE, $this->HTTPHeader());
         $images = $this->jsonResponseToArray($jsonResponse);
+        if(!$images){
+            return null;
+        }
         $nextPage = $images['nextpage'];
         array_pop($images);
         while (count($images) < $count && !empty($nextPage)){
@@ -248,6 +251,9 @@ class instaClass {
     
     public function jsonResponseToArray($response){
         $ResponseJSON = json_decode($response);
+        if(!isset($ResponseJSON->data)){
+            return false;
+        }
         $data = $ResponseJSON->data;
         $images = array();
         if(isset($data)){

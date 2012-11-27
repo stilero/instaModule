@@ -9,7 +9,7 @@
 // no direct access
 defined('_JEXEC') or die;
 $document =& JFactory::getDocument();
-$document->addStyleSheet($modulePath.'css'.DS.'style.css');
+$document->addStyleSheet(MODULEURI.'css/style.css');
 JHtml::_('behavior.framework');
 JHtml::_('behavior.framework', true);
 JHtml::_('behavior.modal', 'a.instaimage');
